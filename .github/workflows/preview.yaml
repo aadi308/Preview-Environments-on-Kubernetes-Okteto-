@@ -1,4 +1,4 @@
-on: 
+on:
   pull_request:
     branches:
       - main
@@ -6,18 +6,17 @@ on:
 jobs:
   preview:
     runs-on: ubuntu-latest
-    steps:
-    - name: checkout
-      uses: actions/checkout@main
-
-    - name: Login
-      uses: okteto/login@main
+  steps:
+    - name: Context
+      uses: okteto/context@latest
       with:
         token: ${{ secrets.OKTETO_TOKEN }}
-
+        
     - name: Deploy preview environment
-      uses: okteto/deploy-preview@main
+      uses: okteto/deploy-preview@latest
       env:
-        GITHUB_TOKEN: ${{ secrets.token }}
+       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        name: pr-${{ github.event.number }}-cindylopez
+        name: pr-${{ github.event.number }}-aadi308
+        scope: personal
+        timeout: 15m
