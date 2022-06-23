@@ -17,5 +17,3 @@ jobs:
 
     - name: Delete namespace
       uses: okteto/destroy-preview@main
-      with:
-        name: pr-${{ github.event.number }}-aadi308

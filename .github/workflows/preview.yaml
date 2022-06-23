@@ -19,5 +19,3 @@ jobs:
       uses: okteto/deploy-preview@main
       env:
         GITHUB_TOKEN: ${{ secrets.token }}
-      with:
-        name: pr-${{ github.event.number }}-aadi308
